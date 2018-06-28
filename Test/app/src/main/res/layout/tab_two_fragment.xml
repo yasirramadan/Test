@@ -1,13 +1,15 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" >
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="model"
-            type="com.example.root.test.fragment.tab_two.TabTwoModel"/>
+            type="com.example.root.test.fragment.tabs.tab_two.TabTwoModel" />
 
         <variable
             name="viewModel"
-            type="com.example.root.test.fragment.tab_two.TabTwoViewModel"/>
+            type="com.example.root.test.fragment.tabs.tab_two.TabTwoViewModel" />
     </data>
 
     <RelativeLayout
@@ -19,33 +21,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/txt_recive_money"/>
+                android:text="@string/txt_receive_money" />
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="phone"
                 android:text="@={model.mobileNumber}"
-                tools:text="777888999"/>
+                tools:text="777888999" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/amount_container"
-            android:layout_below="@id/mobile_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/mobile_container"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/amount_to_send"/>
+                android:text="@string/amount_to_send" />
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@={model.amount}"
-                tools:text="888$"/>
+                tools:text="888$" />
 
         </LinearLayout>
 
@@ -55,24 +61,26 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/amount_container"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/txt_password"/>
+                android:text="@string/txt_password" />
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:text="@{model.password}"
-                tools:text="password"/>
+                tools:text="password" />
         </LinearLayout>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/password_container"
-            android:text="@string/bt_receive_money"
-            android:onClick="@{()->viewModel.requestMoney()}"/>
+            android:onClick="@{()->viewModel.requestMoney()}"
+            android:text="@string/bt_receive_money" />
 
     </RelativeLayout>
 

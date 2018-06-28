@@ -9,6 +9,6 @@
     <string name="amount_to_send">Rs.</string>
     <string name="txt_password">My UPIN is</string>
     <string name="bt_send_money">SEND MONEY</string>
-    <string name="txt_recive_money">I want to receive money from</string>
+    <string name="txt_receive_money">I want to receive money from</string>
     <string name="bt_receive_money">REQUEST MONEY</string>
 </resources>

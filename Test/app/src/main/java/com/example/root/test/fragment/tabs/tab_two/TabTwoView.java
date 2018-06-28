@@ -1,4 +1,4 @@
-package com.example.root.test.fragment.tab_two;
+package com.example.root.test.fragment.tabs.tab_two;
 
 
 import com.example.root.test.fragment.base.BaseView;

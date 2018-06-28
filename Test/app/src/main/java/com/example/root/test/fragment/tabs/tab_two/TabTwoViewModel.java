@@ -1,5 +1,4 @@
-package com.example.root.test.fragment.tab_one;
-
+package com.example.root.test.fragment.tabs.tab_two;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,12 +9,13 @@ import com.example.root.test.fragment.base.BaseViewModel;
 import pocketknife.PocketKnife;
 import pocketknife.SaveState;
 
-public class TabOneViewModel extends BaseViewModel<TabOneView> {
-    @SaveState
-    TabOneModel model;
+public class TabTwoViewModel extends BaseViewModel<TabTwoView> {
 
-    public static TabOneViewModel newInstance() {
-        return new TabOneViewModel();
+    @SaveState
+    TabTwoModel model;
+
+    public static TabTwoViewModel newInstance() {
+        return new TabTwoViewModel();
     }
 
     @Override
@@ -27,7 +27,7 @@ public class TabOneViewModel extends BaseViewModel<TabOneView> {
         }
 
         if (model == null) {
-            model = new TabOneModel();
+            model = new TabTwoModel();
         }
     }
 
@@ -37,11 +37,11 @@ public class TabOneViewModel extends BaseViewModel<TabOneView> {
         PocketKnife.saveInstanceState(this, bundle);
     }
 
-    public void sendMoney(){
-        //TODO :call backend
+    public void requestMoney() {
+        //TODO : make service that will call api
     }
 
-    public TabOneModel getModel() {
+    public TabTwoModel getModel() {
         return model;
     }
 }

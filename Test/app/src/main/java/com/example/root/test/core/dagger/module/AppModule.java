@@ -3,6 +3,8 @@ package com.example.root.test.core.dagger.module;
 import android.app.Application;
 import android.content.Context;
 
+import com.example.root.test.service.ExampleService;
+
 import javax.inject.Named;
 import javax.inject.Singleton;
 
@@ -28,5 +30,11 @@ public class AppModule {
     @Singleton
     Application application() {
         return application;
+    }
+
+    @Provides
+    @Singleton
+    ExampleService exampleService() {
+        return new ExampleService();
     }
 }

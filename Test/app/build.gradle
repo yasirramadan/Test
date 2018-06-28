@@ -1,14 +1,12 @@
 apply plugin: 'com.android.application'
-apply plugin: 'me.tatarka.retrolambda'
-apply plugin: 'com.neenbedankt.android-apt'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "com.example.root.test"
-        minSdkVersion 15
-        targetSdkVersion 25
+        minSdkVersion 21
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -32,50 +30,57 @@ android {
 }
 
 ext {
-    supportLibVersion = '25.1.0'
-    playServicesVersion = '10.0.1'
+    supportLibVersion = '27.1.1'
+    playServicesVersion = '11.8.0'
     pocketKnifeVersion = '3.2.1'
-    daggerVersion = '2.5'
+    daggerVersion = '2.11'
+    okHttpVersion = '3.10.0'
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
     //android support libraries
-    compile "com.android.support:support-annotations:$supportLibVersion"
-    compile "com.android.support:appcompat-v7:$supportLibVersion"
-    compile "com.android.support:design:$supportLibVersion"
+    implementation "com.android.support:support-v4:$supportLibVersion"
+    implementation "com.android.support:support-v13:$supportLibVersion"
+    implementation "com.android.support:support-annotations:$supportLibVersion"
+    implementation "com.android.support:appcompat-v7:$supportLibVersion"
+    implementation "com.android.support:design:$supportLibVersion"
+    implementation "com.android.support:percent:$supportLibVersion"
+    implementation "com.android.support:cardview-v7:$supportLibVersion"
+    implementation "com.android.support:recyclerview-v7:$supportLibVersion"
 
     //Pocket knife for saving instance state
-    compile "com.vikingsen:pocketknife-core:${pocketKnifeVersion}"
-    provided "com.vikingsen:pocketknife-compiler:${pocketKnifeVersion}"
+    // Pocketknife - Intent and Bundle utility library
+    implementation "com.vikingsen:pocketknife-core:$pocketKnifeVersion"
+    annotationProcessor "com.vikingsen:pocketknife-compiler:$pocketKnifeVersion"
 
     // Dagger for dependency injection
-    apt "com.google.dagger:dagger-compiler:${daggerVersion}"
-    compile "com.google.dagger:dagger:${daggerVersion}"
+    annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
+    testAnnotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
+    androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    compileOnly 'javax.annotation:jsr250-api:1.0'
 
-    compile 'com.android.support:support-v4:25.2.0'
+    implementation 'com.android.support:support-v4:27.1.1'
 
-    //RX java
-    compile 'io.reactivex:rxandroid:1.2.1'
-    compile 'io.reactivex:rxjava:1.2.0'
+    // Reactive libraries for observable support
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.10'
+
+    // Retrofit for http & rx binding
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-jackson:2.3.0'
+    implementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
 
     //View model library
-    compile 'eu.inloop:androidviewmodel:1.2.3'
+    implementation 'eu.inloop:androidviewmodel:1.3.5'
 
-    //retrofit ,http ok and gson
-    compile 'com.squareup.retrofit2:retrofit:2.0.2'
-    compile 'com.squareup.okhttp3:okhttp:3.2.0'
-    compile 'com.squareup.okio:okio:1.7.0'
-    compile 'com.google.code.gson:gson:2.6.2'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.1'
-
-    //material date picker
-    compile 'com.wdullaer:materialdatetimepicker:3.1.2'
-
-    testCompile 'junit:junit:4.12'
-    provided 'javax.annotation:jsr250-api:1.0'
+    testImplementation 'junit:junit:4.12'
+    annotationProcessor 'javax.annotation:jsr250-api:1.0'
 }

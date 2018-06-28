@@ -4,10 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.root.test.fragment.tab_four.TabFourFragment;
-import com.example.root.test.fragment.tab_one.TabOneFragment;
-import com.example.root.test.fragment.tab_three.TabThreeFragment;
-import com.example.root.test.fragment.tab_two.TabTwoFragment;
+import com.example.root.test.fragment.tabs.tab_one.TabOneFragment;
+import com.example.root.test.fragment.tabs.tab_two.TabTwoFragment;
 
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
@@ -22,10 +20,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 return TabOneFragment.newInstance();
             case 1:
                 return TabTwoFragment.newInstance();
-            case 2:
-                return TabThreeFragment.newInstance();
-            case 3:
-                return TabFourFragment.newInstance();
             default:
                 return new TabOneFragment().newInstance();
         }
@@ -33,7 +27,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 4;
+        return 2;
     }
 
     @Override
@@ -43,10 +37,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 return "TAB ONE";
             case 1:
                 return "TAB TWO";
-            case 2:
-                return "TAB THREE";
-            case 3:
-                return "TAB FOUR";
         }
         return null;
     }

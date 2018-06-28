@@ -1,13 +1,13 @@
-package com.example.root.test.fragment.tab_two;
+package com.example.root.test.fragment.tabs.tab_one;
 
 import android.databinding.ObservableField;
 
 import java.io.Serializable;
 
-public class TabTwoModel implements Serializable {
+public class TabOneModel implements Serializable {
 
     /**
-     * mobile number to recive money from
+     * mobile number to send money to
      */
     private ObservableField<String> mobileNumber = new ObservableField<>();
 
