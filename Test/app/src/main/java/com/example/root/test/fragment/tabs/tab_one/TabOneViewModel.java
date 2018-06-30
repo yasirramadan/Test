@@ -26,14 +26,6 @@ public class TabOneViewModel extends BaseViewModel<TabOneView> {
         this.exampleService = exampleService;
     }
 
-    //TODO : solve empty constructor problem.
-    /**
-     * this empty constructor is added to enable injecting view model,
-     * without it we will get "can't inject without empty constructor" error message.
-     */
-    public TabOneViewModel() {
-    }
-
     @Override
     public void onCreate(@Nullable Bundle arguments, @Nullable Bundle savedInstanceState) {
         super.onCreate(arguments, savedInstanceState);
@@ -73,14 +65,14 @@ public class TabOneViewModel extends BaseViewModel<TabOneView> {
                     //TODO:dismiss loading to be defined in BaseView
                 })
                 .subscribe(objects -> {
-                    //TODO: fill model.
+                            //TODO: fill model.
                         },
                         throwable -> {
                             //TODO: show error to be defined in BaseView
                         });
     }
 
-    public void sendMoney(){
+    public void sendMoney() {
 
     }
 

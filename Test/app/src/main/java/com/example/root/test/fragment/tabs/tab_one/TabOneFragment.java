@@ -15,8 +15,6 @@ import com.example.root.test.core.dagger.module.ActivityModule;
 import com.example.root.test.databinding.TabOneFragmentBinding;
 import com.example.root.test.fragment.base.BaseViewModelFragment;
 
-import eu.inloop.viewmodel.binding.ViewModelBindingConfig;
-
 public class TabOneFragment extends BaseViewModelFragment<TabOneView, TabOneViewModel>
         implements TabOneView {
     TabOneFragmentBinding binding;
@@ -45,16 +43,5 @@ public class TabOneFragment extends BaseViewModelFragment<TabOneView, TabOneView
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setModelView(this);
-    }
-
-    @Nullable
-    @Override
-    public ViewModelBindingConfig getViewModelBindingConfig() {
-        return null;
-    }
-
-    @Override
-    public void removeViewModel() {
-
     }
 }

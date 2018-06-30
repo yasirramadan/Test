@@ -20,7 +20,7 @@ public abstract class BaseViewModelFragment<T extends BaseView, R extends BaseVi
     @Override
     public void onCreate(@Nullable final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mViewModeHelper.onCreate(getActivity(), savedInstanceState, (Class<? extends AbstractViewModel<T>>) createViewModel().getClass(), getArguments());
+        mViewModeHelper.onCreate(getActivity(), savedInstanceState, this::createViewModel, getArguments());
     }
 
     @Nullable

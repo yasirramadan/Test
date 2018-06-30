@@ -10,8 +10,6 @@ import android.view.ViewGroup;
 
 import com.example.root.test.fragment.base.BaseViewModelFragment;
 
-import eu.inloop.viewmodel.binding.ViewModelBindingConfig;
-
 public class TabTwoFragment extends BaseViewModelFragment<TabTwoView, TabTwoViewModel>
         implements TabTwoView {
 
@@ -42,16 +40,5 @@ public class TabTwoFragment extends BaseViewModelFragment<TabTwoView, TabTwoView
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setModelView(this);
-    }
-
-    @Nullable
-    @Override
-    public ViewModelBindingConfig getViewModelBindingConfig() {
-        return null;
-    }
-
-    @Override
-    public void removeViewModel() {
-
     }
 }
