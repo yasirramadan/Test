@@ -5,11 +5,11 @@
 
         <variable
             name="model"
-            type="com.example.root.test.fragment.weather.list.WeatherListModel" />
+            type="com.example.root.test.fragment.weather.weatherList.WeatherListModel" />
 
         <variable
             name="viewModel"
-            type="com.example.root.test.fragment.weather.list.WeatherListViewModel" />
+            type="com.example.root.test.fragment.weather.weatherList.WeatherListViewModel" />
     </data>
 
     <FrameLayout
