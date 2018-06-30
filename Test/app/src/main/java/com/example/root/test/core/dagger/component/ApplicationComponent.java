@@ -4,7 +4,7 @@ import com.example.root.test.App;
 import com.example.root.test.core.dagger.module.ActivityModule;
 import com.example.root.test.core.dagger.module.AppModule;
 import com.example.root.test.core.dagger.module.NetworkModule;
-import com.example.root.test.fragment.weather.dagger.TabComponent;
+import com.example.root.test.fragment.weather.dagger.WeatherComponent;
 
 import javax.inject.Singleton;
 
@@ -17,5 +17,5 @@ public interface ApplicationComponent {
     // Application wide singletons.
     void inject(App application);
 
-    TabComponent tabComponent(ActivityModule activityModule);
+    WeatherComponent tabComponent(ActivityModule activityModule);
 }

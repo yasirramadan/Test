@@ -6,6 +6,6 @@ import com.example.root.test.fragment.weather.list.WeatherListViewModel;
 import dagger.Subcomponent;
 
 @Subcomponent(modules = ActivityModule.class)
-public interface TabComponent {
-    WeatherListViewModel tabOneViewModel();
+public interface WeatherComponent {
+    WeatherListViewModel weatherListViewModel();
 }
