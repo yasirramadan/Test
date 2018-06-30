@@ -1,11 +1,11 @@
-package com.example.root.test.fragment.tabs.dagger;
+package com.example.root.test.fragment.weather.dagger;
 
 import com.example.root.test.core.dagger.module.ActivityModule;
-import com.example.root.test.fragment.tabs.tab_one.TabOneViewModel;
+import com.example.root.test.fragment.weather.list.WeatherListViewModel;
 
 import dagger.Subcomponent;
 
 @Subcomponent(modules = ActivityModule.class)
 public interface TabComponent {
-    TabOneViewModel tabOneViewModel();
+    WeatherListViewModel tabOneViewModel();
 }

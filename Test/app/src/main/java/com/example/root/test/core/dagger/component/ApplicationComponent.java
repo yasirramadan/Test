@@ -4,7 +4,7 @@ import com.example.root.test.App;
 import com.example.root.test.core.dagger.module.ActivityModule;
 import com.example.root.test.core.dagger.module.AppModule;
 import com.example.root.test.core.dagger.module.NetworkModule;
-import com.example.root.test.fragment.tabs.dagger.TabComponent;
+import com.example.root.test.fragment.weather.dagger.TabComponent;
 
 import javax.inject.Singleton;
 

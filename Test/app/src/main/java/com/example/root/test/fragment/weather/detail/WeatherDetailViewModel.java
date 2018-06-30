@@ -1,4 +1,4 @@
-package com.example.root.test.fragment.tabs.tab_two;
+package com.example.root.test.fragment.weather.detail;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,13 +9,13 @@ import com.example.root.test.fragment.base.BaseViewModel;
 import pocketknife.PocketKnife;
 import pocketknife.SaveState;
 
-public class TabTwoViewModel extends BaseViewModel<TabTwoView> {
+public class WeatherDetailViewModel extends BaseViewModel<WeatherDetailView> {
 
     @SaveState
-    TabTwoModel model;
+    WeatherDetailModel model;
 
-    public static TabTwoViewModel newInstance() {
-        return new TabTwoViewModel();
+    public static WeatherDetailViewModel newInstance() {
+        return new WeatherDetailViewModel();
     }
 
     @Override
@@ -27,7 +27,7 @@ public class TabTwoViewModel extends BaseViewModel<TabTwoView> {
         }
 
         if (model == null) {
-            model = new TabTwoModel();
+            model = new WeatherDetailModel();
         }
     }
 
@@ -41,7 +41,7 @@ public class TabTwoViewModel extends BaseViewModel<TabTwoView> {
         //TODO : make service that will call api
     }
 
-    public TabTwoModel getModel() {
+    public WeatherDetailModel getModel() {
         return model;
     }
 }

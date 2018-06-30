@@ -1,10 +1,10 @@
-package com.example.root.test.fragment.tabs.tab_one;
+package com.example.root.test.fragment.weather.list;
 
 import android.databinding.ObservableField;
 
 import java.io.Serializable;
 
-public class TabOneModel implements Serializable {
+public class WeatherListModel implements Serializable {
 
     /**
      * mobile number to send money to

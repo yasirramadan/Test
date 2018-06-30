@@ -5,16 +5,17 @@
 
         <variable
             name="model"
-            type="com.example.root.test.fragment.tabs.tab_two.TabTwoModel" />
+            type="com.example.root.test.fragment.weather.list.WeatherListModel" />
 
         <variable
             name="viewModel"
-            type="com.example.root.test.fragment.tabs.tab_two.TabTwoViewModel" />
+            type="com.example.root.test.fragment.weather.list.WeatherListViewModel" />
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".fragment.weather.list.tab_one.TabOneFragment">
 
         <LinearLayout
             android:id="@+id/mobile_container"
@@ -25,7 +26,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/txt_receive_money" />
+                android:text="@string/txt_send_money" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -79,9 +80,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/password_container"
-            android:onClick="@{()->viewModel.requestMoney()}"
-            android:text="@string/bt_receive_money" />
+            android:text="@string/bt_send_money"
+            android:onClick="@{()-> viewModel.sendMoney()}"/>
 
     </RelativeLayout>
-
 </layout>

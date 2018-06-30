@@ -1,4 +1,4 @@
-package com.example.root.test.fragment.tabs.tab_one;
+package com.example.root.test.fragment.weather.list;
 
 
 import android.os.Bundle;
@@ -15,14 +15,14 @@ import io.reactivex.schedulers.Schedulers;
 import pocketknife.PocketKnife;
 import pocketknife.SaveState;
 
-public class TabOneViewModel extends BaseViewModel<TabOneView> {
+public class WeatherListViewModel extends BaseViewModel<WeatherListView> {
     private ExampleService exampleService;
 
     @SaveState
-    TabOneModel model;
+    WeatherListModel model;
 
     @Inject
-    TabOneViewModel(ExampleService exampleService) {
+    WeatherListViewModel(ExampleService exampleService) {
         this.exampleService = exampleService;
     }
 
@@ -35,12 +35,12 @@ public class TabOneViewModel extends BaseViewModel<TabOneView> {
         }
 
         if (model == null) {
-            model = new TabOneModel();
+            model = new WeatherListModel();
         }
     }
 
     @Override
-    public void onBindView(@NonNull TabOneView view) {
+    public void onBindView(@NonNull WeatherListView view) {
         super.onBindView(view);
         getExample();
     }
@@ -76,7 +76,7 @@ public class TabOneViewModel extends BaseViewModel<TabOneView> {
 
     }
 
-    public TabOneModel getModel() {
+    public WeatherListModel getModel() {
         return model;
     }
 }

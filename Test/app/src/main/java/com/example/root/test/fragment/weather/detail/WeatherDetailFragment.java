@@ -1,6 +1,7 @@
-package com.example.root.test.fragment.tabs.tab_two;
+package com.example.root.test.fragment.weather.detail;
 
 
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,21 +9,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.root.test.R;
 import com.example.root.test.fragment.base.BaseViewModelFragment;
 
-public class TabTwoFragment extends BaseViewModelFragment<TabTwoView, TabTwoViewModel>
-        implements TabTwoView {
-
-   // TabTwoFragmentBinding binding;
+public class WeatherDetailFragment extends BaseViewModelFragment<WeatherDetailView, WeatherDetailViewModel>
+        implements WeatherDetailView {
 
     public static Fragment newInstance() {
-        return new TabTwoFragment();
+        return new WeatherDetailFragment();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-     //   binding = DataBindingUtil.inflate(inflater, R.layout.tab_two_fragment, container, false);
+        DataBindingUtil.inflate(inflater, R.layout.weather_detail_fragment, container, false);
         //binding.setModel(getViewModel().getModel());
         //binding.setViewModel(getViewModel());
 
@@ -32,8 +32,8 @@ public class TabTwoFragment extends BaseViewModelFragment<TabTwoView, TabTwoView
 
     @Nullable
     @Override
-    public TabTwoViewModel createViewModel() {
-        return TabTwoViewModel.newInstance();
+    public WeatherDetailViewModel createViewModel() {
+        return WeatherDetailViewModel.newInstance();
     }
 
     @Override
