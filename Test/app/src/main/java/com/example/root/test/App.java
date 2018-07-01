@@ -7,6 +7,8 @@ import com.example.root.test.core.dagger.component.DaggerApplicationComponent;
 import com.example.root.test.core.dagger.module.AppModule;
 import com.example.root.test.core.dagger.module.NetworkModule;
 
+import static com.example.root.test.Constants.BASE_URL;
+
 public class App extends Application {
     private static ApplicationComponent appComponent;
 
@@ -16,10 +18,8 @@ public class App extends Application {
 
         appComponent = DaggerApplicationComponent.builder()
                 .appModule(new AppModule(this))
-                .networkModule(new NetworkModule("http://www.somethinge.com/"))
+                .networkModule(new NetworkModule(BASE_URL))
                 .build();
-
-        //appComponent.inject(this);
     }
 
     public static ApplicationComponent getAppComponent() {

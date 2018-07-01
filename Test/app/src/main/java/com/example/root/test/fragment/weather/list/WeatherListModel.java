@@ -1,48 +1,26 @@
 package com.example.root.test.fragment.weather.list;
 
-import android.databinding.ObservableField;
+import android.databinding.ObservableArrayList;
+
+import com.example.root.test.backend.rest.model.Forecast;
 
 import java.io.Serializable;
+import java.util.List;
 
+/**
+ * This class is just example of model classes.
+ */
 public class WeatherListModel implements Serializable {
-
     /**
-     * mobile number to send money to
+     * list which contains forecast info.
      */
-    private ObservableField<String> mobileNumber = new ObservableField<>();
+    private ObservableArrayList<Forecast> forecasts = new ObservableArrayList<>();
 
-    /**
-     * amount to be sent
-     */
-    private ObservableField<String> amount = new ObservableField<>();
-
-    /**
-     * password
-     */
-    private ObservableField<String> password = new ObservableField<>();
-
-
-    public ObservableField<String> getMobileNumber() {
-        return mobileNumber;
+    public ObservableArrayList<Forecast> getForecasts() {
+        return forecasts;
     }
 
-    public ObservableField<String> getAmount() {
-        return amount;
-    }
-
-    public ObservableField<String> getPassword() {
-        return password;
-    }
-
-    public void setMobileNumber(ObservableField<String> mobileNumber) {
-        this.mobileNumber = mobileNumber;
-    }
-
-    public void setAmount(ObservableField<String> amount) {
-        this.amount = amount;
-    }
-
-    public void setPassword(ObservableField<String> password) {
-        this.password = password;
+    public void setForecasts(List<Forecast> forecasts) {
+        this.forecasts.addAll(forecasts);
     }
 }

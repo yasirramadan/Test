@@ -1,20 +1,21 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
-        <variable
-            name="model"
-            type="com.example.root.test.fragment.weather.weatherList.WeatherListModel" />
-
         <variable
             name="viewModel"
-            type="com.example.root.test.fragment.weather.weatherList.WeatherListViewModel" />
+            type="com.example.root.test.fragment.weather.list.WeatherListViewModel" />
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_gravity="center"></ProgressBar>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/forecasts"

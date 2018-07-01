@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.example.root.test.backend.rest.model.Weather" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/Widget.List.Item.TwoLine"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/icon"
+                style="@style/Widget.List.Icon" />
+
+            <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Widget.List.Text.Title"
+                    android:text="@{item.main}"
+                    tools:text="main" />
+
+                <TextView
+                    style="@style/Widget.List.Text.Description"
+                    android:text="@{item.description}"
+                    tools:text="description" />
+            </android.support.v7.widget.LinearLayoutCompat>
+
+        </LinearLayout>
+
+        <View
+            style="@style/Widget.Divider"
+            android:layout_marginLeft="74dp" />
+    </LinearLayout>
+</layout>

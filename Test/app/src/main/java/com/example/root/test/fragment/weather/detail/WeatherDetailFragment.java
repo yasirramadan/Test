@@ -41,4 +41,14 @@ public class WeatherDetailFragment extends BaseViewModelFragment<WeatherDetailVi
         super.onViewCreated(view, savedInstanceState);
         setModelView(this);
     }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void dismissLoading() {
+
+    }
 }

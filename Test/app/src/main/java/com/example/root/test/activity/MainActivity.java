@@ -7,6 +7,7 @@ import android.view.MenuItem;
 
 import com.example.root.test.R;
 import com.example.root.test.activity.base.BaseActivity;
+import com.example.root.test.fragment.weather.list.WeatherListFragment;
 
 
 public class MainActivity extends BaseActivity {
@@ -14,10 +15,14 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tabbed);
+        setContentView(R.layout.activity_main);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.container, WeatherListFragment.newInstance()) //<---replace a view in your layout (id: container) with the newFragment
+                .commit();
     }
 
 

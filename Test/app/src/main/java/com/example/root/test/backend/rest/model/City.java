@@ -1,14 +1,11 @@
 
-package com.example.root.test.rest.model;
+package com.example.root.test.backend.rest.model;
 
-import java.util.HashMap;
-import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -17,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "coord",
     "country"
 })
-public class City {
+public class City implements Serializable {
 
     @JsonProperty("id")
     private Integer id;
@@ -27,8 +24,6 @@ public class City {
     private Coord coord;
     @JsonProperty("country")
     private String country;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     @JsonProperty("id")
     public Integer getId() {
@@ -68,16 +63,6 @@ public class City {
     @JsonProperty("country")
     public void setCountry(String country) {
         this.country = country;
-    }
-
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
     }
 
 }

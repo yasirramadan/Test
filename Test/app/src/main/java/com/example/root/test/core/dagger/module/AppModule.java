@@ -3,7 +3,9 @@ package com.example.root.test.core.dagger.module;
 import android.app.Application;
 import android.content.Context;
 
-import com.example.root.test.service.ExampleService;
+import com.example.root.test.backend.rest.endpoint.WeatherEndpoint;
+import com.example.root.test.service.WeatherService;
+import com.patloew.rxlocation.RxLocation;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
@@ -34,7 +36,13 @@ public class AppModule {
 
     @Provides
     @Singleton
-    ExampleService exampleService() {
-        return new ExampleService();
+    WeatherService exampleService(WeatherEndpoint weatherEndpoint) {
+        return new WeatherService(weatherEndpoint);
+    }
+
+    @Provides
+    @Singleton
+    RxLocation rxLocation(@Named("applicationContext") Context context) {
+        return new RxLocation(context);
     }
 }

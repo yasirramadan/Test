@@ -1,14 +1,9 @@
 <resources>
+    <!-- general -->
     <string name="app_name">Test</string>
     <string name="action_settings">Settings</string>
-    <string name="section_format">Hello World from section: %1$d</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="txt_send_money">I want to send Money to</string>
-    <string name="amount_to_send">Rs.</string>
-    <string name="txt_password">My UPIN is</string>
-    <string name="bt_send_money">SEND MONEY</string>
-    <string name="txt_receive_money">I want to receive money from</string>
-    <string name="bt_receive_money">REQUEST MONEY</string>
+    <!-- error messages -->
+    <string name="location_permission_error">permissions are note granted.</string>
+    <string name="general_error">An error happend somewhere.</string>
 </resources>

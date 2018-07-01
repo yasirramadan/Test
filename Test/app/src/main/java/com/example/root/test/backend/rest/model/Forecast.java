@@ -1,16 +1,11 @@
 
-package com.example.root.test.rest.model;
+package com.example.root.test.backend.rest.model;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -23,14 +18,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
         "sys",
         "dt_txt"
 })
-public class WeatherList {
+public class Forecast implements Serializable {
 
     @JsonProperty("dt")
     private Integer dt;
     @JsonProperty("main")
     private Main main;
     @JsonProperty("weather")
-    private List<Weather> weather = null;
+    private java.util.List<Weather> weather = null;
     @JsonProperty("clouds")
     private Clouds clouds;
     @JsonProperty("wind")
@@ -121,4 +116,5 @@ public class WeatherList {
     public void setDtTxt(String dtTxt) {
         this.dtTxt = dtTxt;
     }
+
 }

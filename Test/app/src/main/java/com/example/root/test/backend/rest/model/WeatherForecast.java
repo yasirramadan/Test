@@ -1,10 +1,11 @@
 
-package com.example.root.test.rest.model;
+package com.example.root.test.backend.rest.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import java.io.Serializable;
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -12,10 +13,10 @@ import java.util.List;
         "cod",
         "message",
         "cnt",
-        "weatherList",
+        "forecast",
         "city"
 })
-public class WeatherForecast {
+public class WeatherForecast implements Serializable {
 
     @JsonProperty("cod")
     private String cod;
@@ -23,8 +24,8 @@ public class WeatherForecast {
     private Double message;
     @JsonProperty("cnt")
     private Integer cnt;
-    @JsonProperty("weatherList")
-    private List<WeatherList> weatherList = null;
+    @JsonProperty("forecast")
+    private List<Forecast> forecast = null;
     @JsonProperty("city")
     private City city;
 
@@ -58,14 +59,14 @@ public class WeatherForecast {
         this.cnt = cnt;
     }
 
-    @JsonProperty("weatherList")
-    public List<WeatherList> getWeatherList() {
-        return weatherList;
+    @JsonProperty("list")
+    public List<Forecast> getForecast() {
+        return forecast;
     }
 
-    @JsonProperty("weatherList")
-    public void setWeatherList(List<WeatherList> weatherList) {
-        this.weatherList = weatherList;
+    @JsonProperty("list")
+    public void setForecast(List<Forecast> forecast) {
+        this.forecast = forecast;
     }
 
     @JsonProperty("city")

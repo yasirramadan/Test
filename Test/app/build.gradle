@@ -71,6 +71,9 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
     implementation 'io.reactivex.rxjava2:rxjava:2.1.10'
 
+    // Reactive permissions
+    implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
+
     // Retrofit for http & rx binding
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
@@ -78,12 +81,18 @@ dependencies {
     implementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
 
-    // Location
-    implementation 'com.patloew.rxlocation:rxlocation:1.0.3'
-
     //View model library
     implementation "com.github.ma-myair:base62:1.0.2"
     implementation "com.github.ma-myair:AndroidViewModel:1.0.2"
+
+    //nice recycler view adapter library.
+    implementation 'eu.davidea:flexible-adapter:5.0.0-rc4'
+
+    // Location
+    implementation 'com.patloew.rxlocation:rxlocation:1.0.3'
+
+    // image loading
+    implementation 'com.github.bumptech.glide:glide:4.6.1'
 
     testImplementation 'junit:junit:4.12'
     annotationProcessor 'javax.annotation:jsr250-api:1.0'

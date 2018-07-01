@@ -1,21 +1,18 @@
 
-package com.example.root.test.rest.model;
+package com.example.root.test.backend.rest.model;
 
-import java.util.HashMap;
-import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
     "speed",
     "deg"
 })
-public class Wind {
+public class Wind implements Serializable {
 
     @JsonProperty("speed")
     private Double speed;
@@ -41,4 +38,5 @@ public class Wind {
     public void setDeg(Double deg) {
         this.deg = deg;
     }
+
 }

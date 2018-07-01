@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
 
-import eu.inloop.viewmodel.AbstractViewModel;
 import eu.inloop.viewmodel.IView;
 import eu.inloop.viewmodel.ViewModelHelper;
 
@@ -73,4 +72,6 @@ public abstract class BaseViewModelFragment<T extends BaseView, R extends BaseVi
     public R getViewModel() {
         return mViewModeHelper.getViewModel();
     }
+
+
 }
