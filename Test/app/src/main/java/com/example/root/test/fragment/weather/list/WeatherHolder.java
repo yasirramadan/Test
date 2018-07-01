@@ -6,6 +6,7 @@ import android.view.View;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.CityWeather;
 import com.example.root.test.R;
 import com.example.root.test.backend.rest.model.Weather;
 import com.example.root.test.databinding.ItemWeatherHolderBinding;
@@ -20,17 +21,17 @@ import static com.example.root.test.Constants.BASE_ICON_URL;
 import static com.example.root.test.Constants.ICON_EXTENSION;
 
 public class WeatherHolder extends AbstractFlexibleItem<WeatherHolder.ViewHolder> {
-    private final Weather weather;
+    private final CityWeather cityWeather;
 
-    public WeatherHolder(Weather weather) {
-        this.weather = weather;
+    public WeatherHolder(CityWeather cityWeather) {
+        this.cityWeather = cityWeather;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o instanceof WeatherHolder) {
             WeatherHolder inItem = (WeatherHolder) o;
-            return weather.equals(inItem.weather);
+            return cityWeather.equals(inItem.cityWeather);
         }
         return false;
     }
@@ -49,6 +50,9 @@ public class WeatherHolder extends AbstractFlexibleItem<WeatherHolder.ViewHolder
     @Override
     public void bindViewHolder(FlexibleAdapter adapter, ViewHolder holder, int position, List<Object> payloads) {
         ItemWeatherHolderBinding binding = holder.getBinding();
+        binding.cityName.setText(cityWeather.getName());
+
+        final Weather weather = cityWeather.getWeather().get(0);
         binding.setItem(weather);
 
         //get icon.

@@ -10,14 +10,17 @@ import java.io.Serializable;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
     "speed",
-    "deg"
+        "deg",
+        "gust"
 })
 public class Wind implements Serializable {
 
     @JsonProperty("speed")
     private Double speed;
     @JsonProperty("deg")
-    private Double deg;
+    private Integer deg;
+    @JsonProperty("gust")
+    private Integer gust;
 
     @JsonProperty("speed")
     public Double getSpeed() {
@@ -30,13 +33,23 @@ public class Wind implements Serializable {
     }
 
     @JsonProperty("deg")
-    public Double getDeg() {
+    public Integer getDeg() {
         return deg;
     }
 
     @JsonProperty("deg")
-    public void setDeg(Double deg) {
+    public void setDeg(Integer deg) {
         this.deg = deg;
+    }
+
+    @JsonProperty("gust")
+    public Integer getGust() {
+        return gust;
+    }
+
+    @JsonProperty("gust")
+    public void setGust(Integer gust) {
+        this.gust = gust;
     }
 
 }

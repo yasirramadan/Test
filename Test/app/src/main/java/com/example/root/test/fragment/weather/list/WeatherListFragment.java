@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.CityWeather;
 import com.example.root.test.App;
 import com.example.root.test.R;
 import com.example.root.test.backend.rest.model.Forecast;
@@ -60,17 +61,17 @@ public class WeatherListFragment extends BaseViewModelFragment<WeatherListView, 
         setModelView(this);
     }
 
-    private List<IFlexible> weatherToFlexible(List<Forecast> forecasts) {
+    private List<IFlexible> weatherToFlexible(List<CityWeather> citiesWeather) {
         List<IFlexible> flexibles = new ArrayList<>();
-        for (Forecast forecast : forecasts) {
-            flexibles.add(new WeatherHolder(forecast.getWeather().get(0)));
+        for (CityWeather cityWeather : citiesWeather) {
+            flexibles.add(new WeatherHolder(cityWeather));
         }
 
         return flexibles;
     }
 
     @Override
-    public void show(List<Forecast> forecast) {
+    public void show(List<CityWeather> forecast) {
         forecastAdapter.updateDataSet(weatherToFlexible(forecast));
     }
 

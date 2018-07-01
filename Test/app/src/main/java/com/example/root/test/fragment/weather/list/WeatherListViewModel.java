@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.root.test.R;
@@ -51,7 +52,7 @@ public class WeatherListViewModel extends BaseViewModel<WeatherListView> {
     @Override
     public void onBindView(@NonNull WeatherListView view) {
         super.onBindView(view);
-        if (model.getForecasts() == null || model.getForecasts().size() == 0) {
+        if (model.getCitiesWeather() == null || model.getCitiesWeather().size() == 0) {
             getWeatherForeCast();
         }
     }
@@ -79,25 +80,17 @@ public class WeatherListViewModel extends BaseViewModel<WeatherListView> {
                     } else {
                         return Single.error(new LocationPermissionException());
                     }
-                }).flatMap(location -> weatherService.getWeatherForecastByLocation(location)
+                }).flatMap(location -> weatherService.getCitesWeatherByLocation(location, 10)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()))
-                .doOnSubscribe(disposable -> {
-                    if (getView() != null) {
-                        getView().showLoading();
-                    }
-                })
-                .doFinally(() -> {
-                    if (getView() != null) {
-                        getView().dismissLoading();
-                    }
-                })
                 .subscribe(weatherForecast -> {
                     if (getView() != null) {
-                        model.setForecasts(weatherForecast.getForecast());
-                        getView().show(model.getForecasts());
+                        model.setCitesWeather(weatherForecast.getCityWeathers());
+                        getView().show(model.getCitiesWeather());
                     }
                 }, throwable -> {
+                    Log.d("getWeatherError", throwable.getMessage());
+
                     if (throwable instanceof LocationPermissionException) {
                         requestShowToast(R.string.location_permission_error, Toast.LENGTH_SHORT);
                     } else {

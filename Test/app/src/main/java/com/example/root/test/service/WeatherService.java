@@ -26,11 +26,12 @@ public class WeatherService {
         this.weatherEndpoint = weatherEndpoint;
     }
 
-    public Single<WeatherForecast> getWeatherForecastByLocation(Location location) {
-        Map<String, String> locationMap = new HashMap<>();
-        locationMap.put("lat", String.valueOf(location.getLatitude()));
-        locationMap.put("lon", String.valueOf(location.getLongitude()));
+    public Single<WeatherForecast> getCitesWeatherByLocation(Location location, Integer numberOfCities) {
+        Map<String, String> params = new HashMap<>();
+        params.put("lat", String.valueOf(location.getLatitude()));
+        params.put("lon", String.valueOf(location.getLongitude()));
+        params.put("cnt", String.valueOf(numberOfCities));
 
-        return weatherEndpoint.getWeatherForeCastByLocation(locationMap);
+        return weatherEndpoint.getCitesWeatherByLocation(params);
     }
 }

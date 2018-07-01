@@ -2,7 +2,7 @@ package com.example.root.test.fragment.weather.list;
 
 import android.databinding.ObservableArrayList;
 
-import com.example.root.test.backend.rest.model.Forecast;
+import com.example.CityWeather;
 
 import java.io.Serializable;
 import java.util.List;
@@ -14,13 +14,13 @@ public class WeatherListModel implements Serializable {
     /**
      * list which contains forecast info.
      */
-    private ObservableArrayList<Forecast> forecasts = new ObservableArrayList<>();
+    private ObservableArrayList<CityWeather> citiesWeather = new ObservableArrayList<>();
 
-    public ObservableArrayList<Forecast> getForecasts() {
-        return forecasts;
+    public ObservableArrayList<CityWeather> getCitiesWeather() {
+        return citiesWeather;
     }
 
-    public void setForecasts(List<Forecast> forecasts) {
-        this.forecasts.addAll(forecasts);
+    public void setCitesWeather(List<CityWeather> forecasts) {
+        this.citiesWeather.addAll(forecasts);
     }
 }

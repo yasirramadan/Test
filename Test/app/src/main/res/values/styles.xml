@@ -86,5 +86,6 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/dividerSize</item>
         <item name="android:background">@color/ColorDivider</item>
+        <item name="android:layout_marginLeft">74dp</item>
     </style>
 </resources>
