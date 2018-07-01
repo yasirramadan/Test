@@ -5,6 +5,7 @@ package com.example.root.test.service;
 import android.location.Location;
 
 import com.example.root.test.backend.rest.endpoint.WeatherEndpoint;
+import com.example.root.test.backend.rest.model.CityCurrentWeatherDetail;
 import com.example.root.test.backend.rest.model.WeatherForecast;
 
 import java.util.HashMap;
@@ -33,5 +34,12 @@ public class WeatherService {
         params.put("cnt", String.valueOf(numberOfCities));
 
         return weatherEndpoint.getCitesWeatherByLocation(params);
+    }
+
+    public Single<CityCurrentWeatherDetail> getWeatherCityDetailByCityName(String cityName) {
+        Map<String, String> params = new HashMap<>();
+        params.put("q", cityName);
+
+        return weatherEndpoint.getCurrentCityWeatherByCityName(params);
     }
 }

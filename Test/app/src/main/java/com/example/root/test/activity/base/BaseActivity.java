@@ -27,6 +27,9 @@ public abstract class BaseActivity extends AppCompatActivity implements IViewMod
     @Nullable
     @Override
     public ViewModelProvider getViewModelProvider() {
+        if (viewModelProvider == null) {
+            viewModelProvider = ViewModelProvider.newInstance(this);
+        }
         return viewModelProvider;
     }
 

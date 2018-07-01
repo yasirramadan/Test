@@ -1,6 +1,7 @@
 package com.example.root.test.fragment.weather.dagger;
 
 import com.example.root.test.core.dagger.module.ActivityModule;
+import com.example.root.test.fragment.weather.detail.WeatherDetailViewModel;
 import com.example.root.test.fragment.weather.list.WeatherListViewModel;
 
 import dagger.Subcomponent;
@@ -8,4 +9,6 @@ import dagger.Subcomponent;
 @Subcomponent(modules = ActivityModule.class)
 public interface WeatherComponent {
     WeatherListViewModel weatherListViewModel();
+
+    WeatherDetailViewModel weatherDetailViewModel();
 }

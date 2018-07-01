@@ -4,45 +4,57 @@ import android.databinding.ObservableField;
 
 import java.io.Serializable;
 
+//TODO : not all properties are included because of lak of time.
 public class WeatherDetailModel implements Serializable {
+    /**
+     * city name
+     */
+    private ObservableField<String> cityName = new ObservableField<>();
 
     /**
-     * mobile number to recive money from
+     * Weather temperature
      */
-    private ObservableField<String> mobileNumber = new ObservableField<>();
+    private ObservableField<String> temperature = new ObservableField<>();
 
     /**
-     * amount to be sent
+     * Weather pressure
      */
-    private ObservableField<String> amount = new ObservableField<>();
+    private ObservableField<String> pressure = new ObservableField<>();
 
     /**
-     * password
+     * Weather humidity
      */
-    private ObservableField<String> password = new ObservableField<>();
+    private ObservableField<String> humidity = new ObservableField<>();
 
-
-    public ObservableField<String> getMobileNumber() {
-        return mobileNumber;
+    public WeatherDetailModel(String cityName) {
+        this.cityName.set(cityName);
     }
 
-    public ObservableField<String> getAmount() {
-        return amount;
+    public ObservableField<String> getTemperature() {
+        return temperature;
     }
 
-    public ObservableField<String> getPassword() {
-        return password;
+    public ObservableField<String> getPressure() {
+        return pressure;
     }
 
-    public void setMobileNumber(ObservableField<String> mobileNumber) {
-        this.mobileNumber = mobileNumber;
+    public ObservableField<String> getHumidity() {
+        return humidity;
     }
 
-    public void setAmount(ObservableField<String> amount) {
-        this.amount = amount;
+    public void setTemperature(String temperature) {
+        this.temperature.set(temperature);
     }
 
-    public void setPassword(ObservableField<String> password) {
-        this.password = password;
+    public void setPressure(String pressure) {
+        this.pressure.set(pressure);
+    }
+
+    public void setHumidity(String humidity) {
+        this.humidity.set(humidity);
+    }
+
+    public ObservableField<String> getCityName() {
+        return cityName;
     }
 }

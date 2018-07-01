@@ -54,6 +54,10 @@ public class WeatherListViewModel extends BaseViewModel<WeatherListView> {
         super.onBindView(view);
         if (model.getCitiesWeather() == null || model.getCitiesWeather().size() == 0) {
             getWeatherForeCast();
+        } else {
+            if (getView() != null) {
+                getView().show(model.getCitiesWeather());
+            }
         }
     }
 
@@ -82,7 +86,16 @@ public class WeatherListViewModel extends BaseViewModel<WeatherListView> {
                     }
                 }).flatMap(location -> weatherService.getCitesWeatherByLocation(location, 10)
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread()))
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe(disposable -> {
+                    if (getView() != null) {
+                        getView().showLoading();
+                    }
+                })).doFinally(() -> {
+            if (getView() != null) {
+                getView().dismissLoading();
+            }
+        })
                 .subscribe(weatherForecast -> {
                     if (getView() != null) {
                         model.setCitesWeather(weatherForecast.getCityWeathers());

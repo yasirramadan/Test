@@ -24,7 +24,7 @@ import eu.davidea.flexibleadapter.FlexibleAdapter;
 import eu.davidea.flexibleadapter.items.IFlexible;
 
 public class WeatherListFragment extends BaseViewModelFragment<WeatherListView, WeatherListViewModel>
-        implements WeatherListView {
+        implements WeatherListView, FlexibleAdapter.OnItemClickListener {
 
     private WeatherListFragmentBinding binding;
 
@@ -82,5 +82,19 @@ public class WeatherListFragment extends BaseViewModelFragment<WeatherListView, 
     @Override
     public void dismissLoading() {
         binding.progress.setVisibility(View.GONE);
+    }
+
+    @Override
+    public boolean onItemClick(int position) {
+        IFlexible holder = forecastAdapter.getItem(0);
+        if (holder != null) {
+            CityWeather cityWeather = ((WeatherHolder) holder).getCityWeather();
+            if (cityWeather != null) {
+                String name = cityWeather.getName();
+                //navigate to weather detail.
+            }
+        }
+
+        return false;
     }
 }

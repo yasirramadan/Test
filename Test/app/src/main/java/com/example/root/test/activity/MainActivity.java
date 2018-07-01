@@ -20,16 +20,18 @@ public class MainActivity extends BaseActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.container, WeatherListFragment.newInstance()) //<---replace a view in your layout (id: container) with the newFragment
-                .commit();
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.container, WeatherListFragment.newInstance(), "root") //<---replace a view in your layout (id: container) with the newFragment
+                    .commit();
+        }
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_tabbed, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 

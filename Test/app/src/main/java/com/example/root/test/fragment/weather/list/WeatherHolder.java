@@ -64,6 +64,10 @@ public class WeatherHolder extends AbstractFlexibleItem<WeatherHolder.ViewHolder
                 .into(binding.icon);
     }
 
+    public CityWeather getCityWeather() {
+        return cityWeather;
+    }
+
     public class ViewHolder extends FlexibleViewHolder {
         private ItemWeatherHolderBinding binding;
 

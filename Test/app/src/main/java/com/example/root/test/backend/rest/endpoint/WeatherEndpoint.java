@@ -1,5 +1,6 @@
 package com.example.root.test.backend.rest.endpoint;
 
+import com.example.root.test.backend.rest.model.CityCurrentWeatherDetail;
 import com.example.root.test.backend.rest.model.WeatherForecast;
 
 import java.util.Map;
@@ -25,5 +26,5 @@ public interface WeatherEndpoint {
      * @return
      */
     @GET("weather")
-    Single<WeatherForecast> getCurrentCityWeatherByCityName(@QueryMap Map<String, String> params);
+    Single<CityCurrentWeatherDetail> getCurrentCityWeatherByCityName(@QueryMap Map<String, String> params);
 }
