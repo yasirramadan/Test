@@ -1,6 +1,7 @@
 
 package com.example.root.test.backend.rest.model;
 
+import com.example.CityWeather;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -18,16 +19,24 @@ import java.util.List;
 })
 public class WeatherForecast implements Serializable {
 
+    @JsonProperty("message")
+    private String message;
     @JsonProperty("cod")
     private String cod;
+    @JsonProperty("count")
+    private Integer count;
+    @JsonProperty("list")
+    private java.util.List<CityWeather> cityWeathers = null;
+
     @JsonProperty("message")
-    private Double message;
-    @JsonProperty("cnt")
-    private Integer cnt;
-    @JsonProperty("forecast")
-    private List<Forecast> forecast = null;
-    @JsonProperty("city")
-    private City city;
+    public String getMessage() {
+        return message;
+    }
+
+    @JsonProperty("message")
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
     @JsonProperty("cod")
     public String getCod() {
@@ -39,43 +48,23 @@ public class WeatherForecast implements Serializable {
         this.cod = cod;
     }
 
-    @JsonProperty("message")
-    public Double getMessage() {
-        return message;
+    @JsonProperty("count")
+    public Integer getCount() {
+        return count;
     }
 
-    @JsonProperty("message")
-    public void setMessage(Double message) {
-        this.message = message;
-    }
-
-    @JsonProperty("cnt")
-    public Integer getCnt() {
-        return cnt;
-    }
-
-    @JsonProperty("cnt")
-    public void setCnt(Integer cnt) {
-        this.cnt = cnt;
+    @JsonProperty("count")
+    public void setCount(Integer count) {
+        this.count = count;
     }
 
     @JsonProperty("list")
-    public List<Forecast> getForecast() {
-        return forecast;
+    public java.util.List<CityWeather> getCityWeathers() {
+        return cityWeathers;
     }
 
     @JsonProperty("list")
-    public void setForecast(List<Forecast> forecast) {
-        this.forecast = forecast;
-    }
-
-    @JsonProperty("city")
-    public City getCity() {
-        return city;
-    }
-
-    @JsonProperty("city")
-    public void setCity(City city) {
-        this.city = city;
+    public void setCityWeathers(List<CityWeather> list) {
+        this.cityWeathers = list;
     }
 }

@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import com.example.CityWeather;
 import com.example.root.test.App;
 import com.example.root.test.R;
-import com.example.root.test.backend.rest.model.Forecast;
 import com.example.root.test.core.dagger.module.ActivityModule;
 import com.example.root.test.databinding.WeatherListFragmentBinding;
 import com.example.root.test.fragment.base.BaseViewModelFragment;
