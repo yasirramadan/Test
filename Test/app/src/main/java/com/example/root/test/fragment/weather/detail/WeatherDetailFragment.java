@@ -44,7 +44,7 @@ public class WeatherDetailFragment extends BaseViewModelFragment<WeatherDetailVi
     @Nullable
     @Override
     public WeatherDetailViewModel createViewModel() {
-        return App.getAppComponent().tabComponent(new ActivityModule(getActivity())).weatherDetailViewModel();
+        return App.getAppComponent().weatherComponent(new ActivityModule(getActivity())).weatherDetailViewModel();
     }
 
     @Override

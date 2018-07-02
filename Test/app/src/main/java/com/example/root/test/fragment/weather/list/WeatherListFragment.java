@@ -52,22 +52,13 @@ public class WeatherListFragment extends BaseViewModelFragment<WeatherListView, 
     @Nullable
     @Override
     public WeatherListViewModel createViewModel() {
-        return App.getAppComponent().tabComponent(new ActivityModule(getActivity())).weatherListViewModel();
+        return App.getAppComponent().weatherComponent(new ActivityModule(getActivity())).weatherListViewModel();
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setModelView(this);
-    }
-
-    private List<IFlexible> weatherToFlexible(List<CityWeather> citiesWeather) {
-        List<IFlexible> flexibles = new ArrayList<>();
-        for (CityWeather cityWeather : citiesWeather) {
-            flexibles.add(new WeatherHolder(cityWeather));
-        }
-
-        return flexibles;
     }
 
     @Override
@@ -99,5 +90,20 @@ public class WeatherListFragment extends BaseViewModelFragment<WeatherListView, 
             }
         }
         return false;
+    }
+
+    /**
+     * converts weather list to flexible list.
+     *
+     * @param citiesWeather
+     * @return
+     */
+    private List<IFlexible> weatherToFlexible(List<CityWeather> citiesWeather) {
+        List<IFlexible> flexibles = new ArrayList<>();
+        for (CityWeather cityWeather : citiesWeather) {
+            flexibles.add(new WeatherHolder(cityWeather));
+        }
+
+        return flexibles;
     }
 }

@@ -17,5 +17,5 @@ public interface ApplicationComponent {
     // Application wide singletons.
     void inject(App application);
 
-    WeatherComponent tabComponent(ActivityModule activityModule);
+    WeatherComponent weatherComponent(ActivityModule activityModule);
 }

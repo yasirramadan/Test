@@ -15,7 +15,13 @@ public interface BaseView extends IView {
 
     void showToast(String text, int duration);
 
+    /**
+     * shows loading
+     */
     void showLoading();
 
+    /**
+     * dismisses loading
+     */
     void dismissLoading();
 }
