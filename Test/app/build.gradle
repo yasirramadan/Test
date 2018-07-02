@@ -87,7 +87,7 @@ dependencies {
     implementation "com.github.ma-myair:AndroidViewModel:1.0.2"
 
     //nice recycler view adapter library.
-    implementation 'eu.davidea:flexible-adapter:5.0.0-rc4'
+    implementation 'eu.davidea:flexible-adapter:5.0.5'
 
     // Location
     implementation 'com.patloew.rxlocation:rxlocation:1.0.3'

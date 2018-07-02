@@ -22,7 +22,7 @@ public class MainActivity extends BaseActivity {
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, WeatherListFragment.newInstance(), "root") //<---replace a view in your layout (id: container) with the newFragment
+                    .add(R.id.container, WeatherListFragment.newInstance(), ROOT_FRAGMENT_TAG)
                     .commit();
         }
     }

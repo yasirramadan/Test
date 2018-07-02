@@ -16,6 +16,7 @@ import com.example.root.test.R;
 import com.example.root.test.core.dagger.module.ActivityModule;
 import com.example.root.test.databinding.WeatherListFragmentBinding;
 import com.example.root.test.fragment.base.BaseViewModelFragment;
+import com.example.root.test.fragment.weather.detail.WeatherDetailFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,17 +85,19 @@ public class WeatherListFragment extends BaseViewModelFragment<WeatherListView, 
         binding.progress.setVisibility(View.GONE);
     }
 
+
     @Override
-    public boolean onItemClick(int position) {
+    public boolean onItemClick(View view, int position) {
         IFlexible holder = forecastAdapter.getItem(0);
         if (holder != null) {
             CityWeather cityWeather = ((WeatherHolder) holder).getCityWeather();
             if (cityWeather != null) {
                 String name = cityWeather.getName();
-                //navigate to weather detail.
+                if (getActivity() != null) {
+                    WeatherDetailFragment.navigate(name, getActivity());
+                }
             }
         }
-
         return false;
     }
 }

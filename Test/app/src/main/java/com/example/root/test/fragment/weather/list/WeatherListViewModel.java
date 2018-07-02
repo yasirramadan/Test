@@ -102,7 +102,7 @@ public class WeatherListViewModel extends BaseViewModel<WeatherListView> {
                         getView().show(model.getCitiesWeather());
                     }
                 }, throwable -> {
-                    Log.d("getWeatherError", throwable.getMessage());
+                    Log.e("getWeatherForecastError", throwable.getMessage());
 
                     if (throwable instanceof LocationPermissionException) {
                         requestShowToast(R.string.location_permission_error, Toast.LENGTH_SHORT);

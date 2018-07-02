@@ -1,26 +1,35 @@
 package com.example.root.test.fragment.weather.detail;
 
 
+import android.app.Activity;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.root.test.App;
 import com.example.root.test.R;
+import com.example.root.test.activity.base.BaseActivity;
 import com.example.root.test.core.dagger.module.ActivityModule;
 import com.example.root.test.databinding.WeatherDetailFragmentBinding;
 import com.example.root.test.fragment.base.BaseViewModelFragment;
+
+import static com.example.root.test.fragment.weather.detail.WeatherDetailViewModel.ARG_CITY_NAME;
 
 public class WeatherDetailFragment extends BaseViewModelFragment<WeatherDetailView, WeatherDetailViewModel>
         implements WeatherDetailView {
 
     WeatherDetailFragmentBinding binding;
-    public static Fragment newInstance() {
-        return new WeatherDetailFragment();
+
+    public static void navigate(String ciyName, Activity activity) {
+        Bundle bundle = new Bundle(1);
+        bundle.putString(ARG_CITY_NAME, ciyName);
+
+        if (activity instanceof BaseActivity) {
+            ((BaseActivity) activity).replaceFragment(WeatherDetailFragment.class, bundle, true, 0);
+        }
     }
 
     @Override

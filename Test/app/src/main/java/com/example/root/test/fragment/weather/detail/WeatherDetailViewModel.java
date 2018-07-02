@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.root.test.R;
@@ -54,8 +55,10 @@ public class WeatherDetailViewModel extends BaseViewModel<WeatherDetailView> {
     @Override
     public void onBindView(@NonNull WeatherDetailView view) {
         super.onBindView(view);
-        getWeatherDetail(model.getCityName().get());
-
+        //TODO: refactor: it is note a good idea to decide absence of data from one property but i do it for know because of lak of time.
+        if (model.getHumidity() == null || model.getHumidity().get() == null) {
+            getWeatherDetail(model.getCityName().get());
+        }
     }
 
     @Override
@@ -98,7 +101,11 @@ public class WeatherDetailViewModel extends BaseViewModel<WeatherDetailView> {
                         final Double temp = main.getTemp();
                         model.setTemperature(String.valueOf(temp));
                     }
-                }, throwable -> requestShowToast(R.string.general_error, Toast.LENGTH_SHORT));
+                }, throwable -> {
+                    Log.e("getWeatherForecastError", throwable.getMessage());
+
+                    requestShowToast(R.string.general_error, Toast.LENGTH_SHORT);
+                });
     }
 
     public WeatherDetailModel getModel() {

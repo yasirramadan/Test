@@ -30,23 +30,23 @@ public class NetworkModule {
     @Singleton
     Cache provideHttpCache(Application application) {
         int cacheSize = 10 * 1024 * 1024;
-        Cache cache = new Cache(application.getCacheDir(), cacheSize);
-        return cache;
+        return new Cache(application.getCacheDir(), cacheSize);
     }
 
     @Provides
     @Singleton
     OkHttpClient okhttpClient(Cache cache) {
         OkHttpClient.Builder client = new OkHttpClient.Builder();
+        client.cache(cache);
 
+        //logging interceptor
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-
-        AppIdInterceptor interceptor = new AppIdInterceptor();
-
-        client.cache(cache);
-        client.addInterceptor(interceptor);
         client.addInterceptor(httpLoggingInterceptor);
+
+        //AppId interceptor adds appId header to all requests.
+        AppIdInterceptor interceptor = new AppIdInterceptor();
+        client.addInterceptor(interceptor);
 
         return client.build();
     }

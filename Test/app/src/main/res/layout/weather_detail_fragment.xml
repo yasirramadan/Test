@@ -28,16 +28,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{model.temperature}"
                 tools:text="temperature" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{model.pressure}"
                 tools:text="pressure" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{model.humidity}"
                 tools:text="humidity" />
         </LinearLayout>
 
