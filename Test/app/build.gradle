@@ -5,7 +5,7 @@ android {
     buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "com.example.root.test"
-        minSdkVersion 21
+        minSdkVersion 15
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -88,9 +88,6 @@ dependencies {
 
     //nice recycler view adapter library.
     implementation 'eu.davidea:flexible-adapter:5.0.5'
-
-    // Location
-    implementation 'com.patloew.rxlocation:rxlocation:1.0.3'
 
     // image loading
     implementation 'com.github.bumptech.glide:glide:4.6.1'

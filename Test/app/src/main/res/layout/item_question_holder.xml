@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.example.root.stackexchange.backend.rest.model.Question" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/question_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/Widget.List.Item"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/icon"
+                style="@style/Widget.List.Icon" />
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/Widget.List.Text.Title"
+                android:text="@{item.title}"
+                tools:text="dasdsdssdsdsdsdsdsdsdsdsddeeeeee" />
+
+        </LinearLayout>
+
+        <View style="@style/Widget.Divider" />
+    </LinearLayout>
+</layout>
