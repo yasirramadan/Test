@@ -4,7 +4,7 @@
     <string name="action_settings">Settings</string>
 
     <!-- error messages -->
-    <string name="general_error">An error happened somewhere.</string>
+    <string name="general_error">An error happened either you are offline or server is down try refresh.</string>
     <string name="no_more_load_retry">Nothing more to load try pull to refresh</string>
     <string name="offline_cashed_data_loaded">you are offline all data is loaded from cache try pull to refresh.</string>
     <string name="server_error" >There is problem with server try pull to refresh</string>
