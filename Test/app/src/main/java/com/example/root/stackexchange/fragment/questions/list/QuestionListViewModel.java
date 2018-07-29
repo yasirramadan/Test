@@ -55,7 +55,7 @@ public class QuestionListViewModel extends BaseViewModel<QuestionListView> {
         if (model.getQuestions().size() == 0) {
             load(model.getNextPage(), true);
         } else {
-           requestShow(false);
+            requestShow(false);
         }
     }
 
@@ -114,7 +114,7 @@ public class QuestionListViewModel extends BaseViewModel<QuestionListView> {
         //has more questions so load.
         getQuestions(model.getPageCounter(), false).subscribe(questionList -> {
             if (questionList != null) {
-                List<Question> questions = questionList.body()!= null ?  questionList.body().getQuestions() : new ArrayList<>();
+                List<Question> questions = questionList.body() != null ? questionList.body().getQuestions() : new ArrayList<>();
                 model.addMoreQuestions(questions);
                 requestMoreQuestionsLoaded(questions);
             }

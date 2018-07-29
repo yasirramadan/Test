@@ -15,9 +15,11 @@
         android:id="@+id/question_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryInverse"
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/item"
             style="@style/Widget.List.Item"
             android:orientation="horizontal">
 
@@ -29,7 +31,7 @@
                 android:id="@+id/title"
                 style="@style/Widget.List.Text.Title"
                 android:text="@{Html.fromHtml(item.title)}"
-                tools:text="dasdsdssdsdsdsdsdsdsdsdsddeeeeee" />
+                tools:text="what could happen when we have very veryveryveryveryveryvery long question?" />
 
         </LinearLayout>
 

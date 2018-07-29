@@ -46,7 +46,11 @@ public class QuestionDetailFragment extends BaseViewModelFragment<QuestionDetail
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
                 super.onProgressChanged(view, newProgress);
-                binding.progress.setVisibility(newProgress == 100 ? View.GONE : View.VISIBLE);
+                if (newProgress == 100) {
+                    dismissLoading();
+                } else {
+                    showLoading();
+                }
             }
         });
 
@@ -86,6 +90,12 @@ public class QuestionDetailFragment extends BaseViewModelFragment<QuestionDetail
         binding.body.loadData(buildHtml((questionBody)), "text/html", null);
     }
 
+    /**
+     * this method is mainly for resizing images size by adding style to question body.
+     *
+     * @param body question body.
+     * @return
+     */
     private String buildHtml(String body){
         StringBuilder html = new StringBuilder();
         html.append("<html>");
