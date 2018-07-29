@@ -38,7 +38,7 @@ public class QuestionListModel implements Serializable {
     }
 
     /**
-     * @return increased pag count by on.
+     * @return increased pag count by one.
      */
     @Nullable
     public Integer getNextPage() {
