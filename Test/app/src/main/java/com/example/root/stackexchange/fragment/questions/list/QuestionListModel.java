@@ -13,7 +13,7 @@ import io.reactivex.annotations.Nullable;
  * This class is just example of model classes.
  */
 public class QuestionListModel implements Serializable {
-    private static final int MAX_PAGE_COUNT = 5;
+    private static final int MAX_PAGE_COUNT = 50;
 
     /**
      * a list of questions
@@ -48,16 +48,18 @@ public class QuestionListModel implements Serializable {
         return ++pageCounter;
     }
 
-    public void setModel(QuestionList questionList){
+    public void initModel(QuestionList questionList){
         if (questionList != null){
-            this.questions.addAll(questionList.getQuestions());
+            this.questions = questionList.getQuestions();
             this.hasMoreToLoad = questionList.getHasMore();
         }
     }
 
-    public void resetModel(){
-        this.questions.clear();
+    public void addMoreQuestions(List<Question> questions){
+        this.questions.addAll(questions);
+    }
+
+    public void resetPageCounter(){
         this.pageCounter = 0;
-        this.hasMoreToLoad = true;
     }
 }

@@ -4,7 +4,7 @@ import com.example.root.stackexchange.backend.interceptor.QuestionsDefaultHeader
 import com.example.root.stackexchange.backend.rest.model.QuestionList;
 
 import io.reactivex.Single;
-import retrofit2.adapter.rxjava2.Result;
+import retrofit2.Response;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
@@ -16,5 +16,5 @@ public interface QuestionsEndpoint {
      * gets a list of questions by page number.
      */
     @GET("questions")
-    Single<Result<QuestionList>> getQuestions(@Query(value="page") String pageNumber);
+    Single<Response<QuestionList>> getQuestions(@Query(value="page") String pageNumber);
 }

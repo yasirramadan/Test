@@ -6,6 +6,8 @@
         <variable
             name="item"
             type="com.example.root.stackexchange.backend.rest.model.Question" />
+
+        <import type="android.text.Html"/>
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -26,7 +28,7 @@
             <TextView
                 android:id="@+id/title"
                 style="@style/Widget.List.Text.Title"
-                android:text="@{item.title}"
+                android:text="@{Html.fromHtml(item.title)}"
                 tools:text="dasdsdssdsdsdsdsdsdsdsdsddeeeeee" />
 
         </LinearLayout>

@@ -28,7 +28,7 @@ public class QuestionHolder extends AbstractFlexibleItem<QuestionHolder.ViewHold
     public boolean equals(Object o) {
         if (o instanceof QuestionHolder) {
             QuestionHolder inItem = (QuestionHolder) o;
-            return question.getTitle().equals(inItem.question.getTitle());
+            return question.getLastActivityDate().equals(inItem.question.getLastActivityDate());
         }
         return false;
     }
@@ -57,8 +57,12 @@ public class QuestionHolder extends AbstractFlexibleItem<QuestionHolder.ViewHold
                 .into(binding.icon);
     }
 
+    public Question getQuestion() {
+        return question;
+    }
+
     public class ViewHolder extends FlexibleViewHolder {
-        ItemQuestionHolderBinding binding;
+        private final ItemQuestionHolderBinding binding;
 
         public ViewHolder(ItemQuestionHolderBinding binding, FlexibleAdapter adapter) {
             super(binding.getRoot(), adapter);

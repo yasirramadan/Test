@@ -1,9 +1,6 @@
 package com.example.root.stackexchange.core.dagger.module;
 
 import android.app.Application;
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 
 import com.example.root.stackexchange.backend.exeption.RxErrorHandlingCallAdapterFactory;
 import com.example.root.stackexchange.backend.interceptor.OfflineResponseCacheInterceptor;
@@ -20,12 +17,11 @@ import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
 @Module
 public class NetworkModule {
-    private String baseUrl;
+    private final String baseUrl;
 
     public NetworkModule(String mBaseUrl) {
         this.baseUrl = mBaseUrl;
@@ -34,14 +30,8 @@ public class NetworkModule {
     @Provides
     @Singleton
     Cache provideHttpCache(Application application) {
-        int cacheSize = 10 * 1024 * 1024;
+        int cacheSize =  10 * 1024 * 1024;
         return new Cache(application.getCacheDir(), cacheSize);
-    }
-
-    //TODO: move to networkUtil
-    @Provides
-    ConnectivityManager connectivityManager(Application application) {
-      return (ConnectivityManager) application.getSystemService(Context.CONNECTIVITY_SERVICE);
     }
 
     @Provides
@@ -50,8 +40,8 @@ public class NetworkModule {
     }
 
     @Provides
-    OfflineResponseCacheInterceptor offlineResponseCacheInterceptor(ConnectivityManager connectivityManager) {
-        return new OfflineResponseCacheInterceptor(connectivityManager);
+    OfflineResponseCacheInterceptor offlineResponseCacheInterceptor(Application application) {
+        return new OfflineResponseCacheInterceptor(application);
     }
 
     @Provides

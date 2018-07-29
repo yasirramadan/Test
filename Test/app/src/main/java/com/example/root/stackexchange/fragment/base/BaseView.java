@@ -24,4 +24,9 @@ public interface BaseView extends IView {
      * dismisses loading
      */
     void dismissLoading();
+
+    /**
+     * shows error
+     */
+    void showEmptyView(@StringRes int resourceId);
 }

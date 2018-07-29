@@ -2,59 +2,31 @@ package com.example.root.stackexchange.fragment.questions.detail;
 
 import android.databinding.ObservableField;
 
+import com.example.root.stackexchange.backend.rest.model.Question;
+
 import java.io.Serializable;
 
-//TODO : not all properties are included because of lak of time.
 public class QuestionDetailModel implements Serializable {
     /**
-     * city name
+     * Question title
      */
-    private ObservableField<String> cityName = new ObservableField<>();
+    private final ObservableField<String> questionTitle = new ObservableField<>();
 
     /**
-     * Weather temperature
+     * Question detail
      */
-    private ObservableField<String> temperature = new ObservableField<>();
+    private final ObservableField<String> questionDetail = new ObservableField<>();
 
-    /**
-     * Weather pressure
-     */
-    private ObservableField<String> pressure = new ObservableField<>();
-
-    /**
-     * Weather humidity
-     */
-    private ObservableField<String> humidity = new ObservableField<>();
-
-    public QuestionDetailModel(String cityName) {
-        this.cityName.set(cityName);
+    public QuestionDetailModel(Question question) {
+        this.questionTitle.set(question.getTitle());
+        this.questionDetail.set(question.getBody());
     }
 
-    public ObservableField<String> getTemperature() {
-        return temperature;
+    public ObservableField<String> getQuestionTitle() {
+        return questionTitle;
     }
 
-    public ObservableField<String> getPressure() {
-        return pressure;
-    }
-
-    public ObservableField<String> getHumidity() {
-        return humidity;
-    }
-
-    public void setTemperature(String temperature) {
-        this.temperature.set(temperature);
-    }
-
-    public void setPressure(String pressure) {
-        this.pressure.set(pressure);
-    }
-
-    public void setHumidity(String humidity) {
-        this.humidity.set(humidity);
-    }
-
-    public ObservableField<String> getCityName() {
-        return cityName;
+    public ObservableField<String> getQuestionDetail() {
+        return questionDetail;
     }
 }

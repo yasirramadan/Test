@@ -6,42 +6,38 @@
         <variable
             name="model"
             type="com.example.root.stackexchange.fragment.questions.detail.QuestionDetailModel" />
+
+        <import type="android.text.Html"/>
     </data>
 
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ProgressBar
-            android:id="@+id/progress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            tools:visibility="visible"
-            android:visibility="gone" />
+        style="@style/Widget.Layout.Screen">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{model.temperature}"
-                tools:text="temperature" />
+                style="@style/Widget.Text.Title"
+                android:text="@{Html.fromHtml(model.questionTitle)}"
+                tools:text="title" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{model.pressure}"
-                tools:text="pressure" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{model.humidity}"
-                tools:text="humidity" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/spaceBetweenContentLarge">
+                <WebView
+                    android:id="@+id/body"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+                <ProgressBar
+                    android:id="@+id/progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    tools:visibility="visible" />
+            </FrameLayout>
         </LinearLayout>
 
     </FrameLayout>

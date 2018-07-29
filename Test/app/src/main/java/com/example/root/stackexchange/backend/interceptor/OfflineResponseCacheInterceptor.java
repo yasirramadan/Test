@@ -1,7 +1,8 @@
 package com.example.root.stackexchange.backend.interceptor;
 
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.content.Context;
+
+import com.example.root.stackexchange.util.NetworkUtils;
 
 import java.io.IOException;
 
@@ -11,17 +12,16 @@ import okhttp3.Response;
 
 public class OfflineResponseCacheInterceptor implements Interceptor {
 
-    private final ConnectivityManager connectivityManager;
+    private final Context context;
 
-    public OfflineResponseCacheInterceptor(ConnectivityManager manager) {
-        this.connectivityManager = manager;
+    public OfflineResponseCacheInterceptor(Context context) {
+        this.context = context;
     }
 
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();
-        NetworkInfo info = connectivityManager.getActiveNetworkInfo();
-        if (info == null || !info.isConnectedOrConnecting()) {
+        if (NetworkUtils.isNetworkOffline(context)) {
             request = request.newBuilder()
                     .header("Cache-Control",
                             "public, only-if-cached, max-stale=" + 2419200)

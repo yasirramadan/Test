@@ -1,17 +1,8 @@
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="fab_margin">16dp</dimen>
-
     <!-- Font size -->
-    <dimen name="fontSizeLarge">26sp</dimen>
-    <dimen name="fontSizeTitle2">24sp</dimen>
     <dimen name="fontSizeTitle1">20sp</dimen>
-    <dimen name="fontSizeHighlight2">17sp</dimen>
     <dimen name="fontSizeHighlight1">16sp</dimen>
-    <dimen name="fontSizeBodyHighlight1">15sp</dimen>
     <dimen name="fontSizeBody">14sp</dimen>
-    <dimen name="fontSizeDescription2">12sp</dimen>
-    <dimen name="fontSizeMicro">8sp</dimen>
 
     <!-- Screen edge -->
     <dimen name="screenEdgeSpaceRight">16dp</dimen>
@@ -19,11 +10,8 @@
     <dimen name="screenEdgeSpaceBottom">16dp</dimen>
     <dimen name="spaceBetweenContent">8dp</dimen>
     <dimen name="spaceBetweenContentLarge">16dp</dimen>
-    <dimen name="spaceBetweenContentExtraLarge">24dp</dimen>
-    <dimen name="noSpace">0dp</dimen>
 
     <!-- Lists -->
-    <dimen name="listItemSpaceLeft">72dp</dimen>
     <dimen name="listItemSpaceTop">16dp</dimen>
     <dimen name="listItemSpaceBottom">16dp</dimen>
     <dimen name="dividerSize">1dp</dimen>

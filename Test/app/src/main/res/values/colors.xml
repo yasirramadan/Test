@@ -7,7 +7,6 @@
 
     <!-- text colors -->
     <color name="colorTextPrimary">#212121</color>
-    <color name="colorTextSecondary">#666666</color>
 
     <!-- divider color -->
     <color name="ColorDivider">#E0E0E0</color>

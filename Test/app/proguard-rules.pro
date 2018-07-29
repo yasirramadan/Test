@@ -1,17 +1,50 @@
-# Add project specific ProGuard rules here.
-# By default, the flags in this file are appended to flags specified
-# in /root/Android/Sdk/tools/proguard/proguard-android.txt
-# You can edit the include path and order by changing the proguardFiles
-# directive in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
 
-# Add any project specific keep options here:
+#Jackson START
+-keepnames class com.fasterxml.jackson.** { *; }
+-keepnames class cz.airbank.mb.android.service.helpers.jackson.** { *; }
+-dontwarn com.fasterxml.jackson.databind.**
+-keep class cz.airbank.mb.android.notifications.detail.data.** { *; }
+# Jackson END
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+# PocketKnife START
+-keep class pocketknife.** { *; }
+-dontwarn pocketknife.internal.**
+-keep class **$$BundleAdapter { *; }
+-keep class **$$IntentAdapter { *; }
+
+-keepclasseswithmembernames class * {
+    @pocketknife.* <fields>;
+}
+
+-keepclasseswithmembernames class * {
+    @pocketknife.* <methods>;
+}
+# PocketKnife END
+
+# Retrolambda START
+-dontwarn java.lang.invoke.*
+# Retrolambda END
+
+# Parceler START
+-keep interface org.parceler.Parcel
+-keep @org.parceler.Parcel class * { *; }
+-keep class **$$Parcelable { *; }
+# Parceler END
+
+# Glide START
+-keep public class * implements com.bumptech.glide.module.GlideModule
+-keep public enum com.bumptech.glide.load.resource.bitmap.ImageHeaderParser$** {
+  **[] $VALUES;
+  public *;
+}
+# Glide END
+
+# OkHttp START
+-dontwarn okhttp3.**
+-dontwarn javax.annotation.**
+-keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase
+# OkHttp END
+
+# Dagger 2 START
+-dontwarn com.google.errorprone.annotations.**
+# Dagger 2 END

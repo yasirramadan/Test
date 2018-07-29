@@ -6,13 +6,15 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
 
+import com.example.root.stackexchange.callback.BackReceiver;
+
 import eu.inloop.viewmodel.IView;
 import eu.inloop.viewmodel.ViewModelHelper;
 
 /**
  * Base for all fragments using ViewModel pattern.
  */
-public abstract class BaseViewModelFragment<T extends BaseView, R extends BaseViewModel<T>> extends BaseFragment implements IView {
+public abstract class BaseViewModelFragment<T extends BaseView, R extends BaseViewModel<T>> extends BaseFragment implements IView, BackReceiver {
 
     private final ViewModelHelper<T, R> mViewModeHelper = new ViewModelHelper<>();
 
@@ -64,6 +66,11 @@ public abstract class BaseViewModelFragment<T extends BaseView, R extends BaseVi
         super.onDestroy();
     }
 
+    @Override
+    public boolean onBackPressed() {
+        return false;
+    }
+
     /**
      * @see ViewModelHelper#getViewModel()
      */
@@ -72,6 +79,5 @@ public abstract class BaseViewModelFragment<T extends BaseView, R extends BaseVi
     public R getViewModel() {
         return mViewModeHelper.getViewModel();
     }
-
 
 }

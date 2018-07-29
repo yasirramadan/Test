@@ -1,6 +1,8 @@
 package com.example.root.stackexchange.activity;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,12 +14,14 @@ import com.example.root.stackexchange.fragment.questions.list.QuestionListFragme
 
 public class MainActivity extends BaseActivity {
 
+    private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         if (savedInstanceState == null) {
@@ -48,5 +52,9 @@ public class MainActivity extends BaseActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void setToolbarTitle(@Nullable final Integer titleResId) {
+        new Handler().post(() -> toolbar.setTitle(titleResId));
     }
 }

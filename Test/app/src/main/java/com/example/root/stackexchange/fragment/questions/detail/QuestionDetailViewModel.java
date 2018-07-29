@@ -1,12 +1,11 @@
 package com.example.root.stackexchange.fragment.questions.detail;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.example.root.stackexchange.backend.rest.model.Question;
 import com.example.root.stackexchange.fragment.base.BaseViewModel;
-import com.example.root.stackexchange.service.StackExchangeService;
 
 import javax.inject.Inject;
 
@@ -19,11 +18,9 @@ public class QuestionDetailViewModel extends BaseViewModel<QuestionDetailView> {
     @SaveState
     QuestionDetailModel model;
 
-    private final StackExchangeService stackExchangeService;
 
     @Inject
-    QuestionDetailViewModel(StackExchangeService stackExchangeService) {
-        this.stackExchangeService = stackExchangeService;
+    QuestionDetailViewModel() {
     }
 
     @Override
@@ -32,26 +29,25 @@ public class QuestionDetailViewModel extends BaseViewModel<QuestionDetailView> {
 
         if (savedInstanceState != null) {
             PocketKnife.restoreInstanceState(arguments, savedInstanceState);
-        }
-
-        String cityName = null;
-        if (arguments != null) {
-            arguments.getString(ARG_QUESTION);
         } else {
-            throw new IllegalArgumentException("cannot proceed without city name");
-        }
+            Question question;
+            if (arguments != null) {
+                question = (Question) arguments.getSerializable(ARG_QUESTION);
+            } else {
+                throw new IllegalArgumentException("cannot proceed without city name");
+            }
 
-        if (model == null) {
-            model = new QuestionDetailModel(cityName);
+            if (model == null) {
+                model = new QuestionDetailModel(question);
+            }
         }
     }
 
     @Override
     public void onBindView(@NonNull QuestionDetailView view) {
         super.onBindView(view);
-        //TODO: refactor: it is note a good idea to decide absence of data from one property but i do it for know because of lak of time.
-        if (model.getHumidity() == null || model.getHumidity().get() == null) {
-            getWeatherDetail(model.getCityName().get());
+        if (getView() != null){
+            getView().show(model.getQuestionDetail().get());
         }
     }
 
@@ -59,16 +55,6 @@ public class QuestionDetailViewModel extends BaseViewModel<QuestionDetailView> {
     public void onSaveInstanceState(@NonNull Bundle bundle) {
         super.onSaveInstanceState(bundle);
         PocketKnife.saveInstanceState(this, bundle);
-    }
-
-    /**
-     * gets current weather for a given city.
-     *
-     * @param cityName
-     */
-    @SuppressLint("CheckResult")
-    private void getWeatherDetail(String cityName) {
-
     }
 
     public QuestionDetailModel getModel() {
