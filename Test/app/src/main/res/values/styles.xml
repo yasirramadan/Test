@@ -69,8 +69,6 @@
     <style name="Widget.Layout.Screen">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:paddingRight">@dimen/screenEdgeSpaceRight</item>
-        <item name="android:paddingLeft">@dimen/screenEdgeSpaceLeft</item>
         <item name="android:paddingBottom">@dimen/screenEdgeSpaceBottom</item>
         <item name="android:paddingTop">@dimen/spaceBetweenContent</item>
         <item name="android:clipToPadding">false</item>
@@ -86,6 +84,15 @@
 
     <style name="Widget.Text.Title">
         <item name="android:textSize">@dimen/fontSizeTitle1</item>
+        <item name="android:paddingLeft">@dimen/spaceBetweenContentLarge</item>
+        <item name="android:paddingRight">@dimen/spaceBetweenContentLarge</item>
+    </style>
+
+    <style name="Widget.WebView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginLeft">@dimen/spaceBetweenContent</item>
+        <item name="android:layout_marginRight">@dimen/spaceBetweenContent</item>
     </style>
 
 </resources>

@@ -7,11 +7,10 @@
             name="model"
             type="com.example.root.stackexchange.fragment.questions.detail.QuestionDetailModel" />
 
-        <import type="android.text.Html"/>
+        <import type="android.text.Html" />
     </data>
 
-    <FrameLayout
-        style="@style/Widget.Layout.Screen">
+    <FrameLayout style="@style/Widget.Layout.Screen">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,10 +26,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/spaceBetweenContentLarge">
+
                 <WebView
                     android:id="@+id/body"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    style="@style/Widget.WebView" />
+
                 <ProgressBar
                     android:id="@+id/progress"
                     android:layout_width="wrap_content"
