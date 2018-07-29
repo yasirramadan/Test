@@ -36,10 +36,22 @@ public class StackExchangeService {
         return questionsEndpoint.getQuestions(String.valueOf(pageNumber));
     }
 
+    /**
+     * tests if response is from network or cache.
+     *
+     * @param response
+     * @return true if the response from cache
+     */
     public boolean isResultFromCache(Response response) {
         return response != null && response.raw() != null && response.raw().networkResponse() == null;
     }
 
+    /**
+     * gets message resource id from throwable
+     *
+     * @param throwable
+     * @return resource id
+     */
     @NonNull
     public Integer getErrorMessage(Throwable throwable) {
         BackendException.Kind kind = NetworkUtils.getExceptionKind(throwable);

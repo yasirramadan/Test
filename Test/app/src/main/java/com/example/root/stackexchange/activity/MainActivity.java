@@ -13,7 +13,6 @@ import com.example.root.stackexchange.fragment.questions.list.QuestionListFragme
 
 
 public class MainActivity extends BaseActivity {
-
     private Toolbar toolbar;
 
     @Override
@@ -54,6 +53,11 @@ public class MainActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * sets fragment title called from fragments.
+     *
+     * @param titleResId
+     */
     public void setToolbarTitle(@Nullable final Integer titleResId) {
         new Handler().post(() -> toolbar.setTitle(titleResId));
     }

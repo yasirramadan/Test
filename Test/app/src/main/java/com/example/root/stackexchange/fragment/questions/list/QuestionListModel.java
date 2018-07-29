@@ -13,13 +13,14 @@ import io.reactivex.annotations.Nullable;
  * This class is just example of model classes.
  */
 public class QuestionListModel implements Serializable {
-    private static final int MAX_PAGE_COUNT = 50;
-
     /**
      * a list of questions
      */
     private List<Question> questions = new ArrayList<>();
 
+    /**
+     * page counter.
+     */
     private Integer pageCounter = 0;
 
     private Boolean hasMoreToLoad = true;
@@ -37,29 +38,38 @@ public class QuestionListModel implements Serializable {
     }
 
     /**
-     * @return null if page count exceeded maximum else returns increased pag count by on.
+     * @return increased pag count by on.
      */
     @Nullable
-    public Integer getNextPage(){
-        if (pageCounter == MAX_PAGE_COUNT){
-            return null;
-        }
-
+    public Integer getNextPage() {
         return ++pageCounter;
     }
 
-    public void initModel(QuestionList questionList){
-        if (questionList != null){
+    /**
+     * initializes model called when we visit fragment for first time or when reload.
+     *
+     * @param questionList
+     */
+    public void initModel(QuestionList questionList) {
+        if (questionList != null) {
             this.questions = questionList.getQuestions();
             this.hasMoreToLoad = questionList.getHasMore();
         }
     }
 
-    public void addMoreQuestions(List<Question> questions){
+    /**
+     * appends more questions to question list.
+     *
+     * @param questions
+     */
+    public void addMoreQuestions(List<Question> questions) {
         this.questions.addAll(questions);
     }
 
-    public void resetPageCounter(){
+    /**
+     * resets counter.
+     */
+    public void resetPageCounter() {
         this.pageCounter = 0;
     }
 }

@@ -27,8 +27,6 @@ import eu.davidea.flexibleadapter.items.AbstractFlexibleItem;
 
 public class QuestionListFragment extends BaseViewModelFragment<QuestionListView, QuestionListViewModel> implements
         QuestionListView, FlexibleAdapter.EndlessScrollListener {
-
-
     private QuestionListFragmentBinding binding;
 
     private FlexibleAdapter<AbstractFlexibleItem> questionAdapter;
@@ -55,14 +53,14 @@ public class QuestionListFragment extends BaseViewModelFragment<QuestionListView
                 .setTopEndless(false);
 
         //click
-        questionAdapter.addListener((FlexibleAdapter.OnItemClickListener) (view, position) ->{
+        questionAdapter.addListener((FlexibleAdapter.OnItemClickListener) (view, position) -> {
             AbstractFlexibleItem item = questionAdapter.getItem(position);
-            if (item instanceof QuestionHolder){
-                Question question = ((QuestionHolder)item).getQuestion();
+            if (item instanceof QuestionHolder) {
+                Question question = ((QuestionHolder) item).getQuestion();
                 QuestionDetailFragment.navigate(question, getActivity());
             }
 
-         return false;
+            return false;
         });
 
         binding.questions.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -88,17 +86,17 @@ public class QuestionListFragment extends BaseViewModelFragment<QuestionListView
     @Override
     public void show(List<Question> questions, boolean isCacheData) {
         binding.emptyView.getRoot().setVisibility(View.GONE);
+        questionAdapter.updateDataSet(questionToFlexible(questions));
 
         //if we reach here from swipe to refresh.
         if (binding.swipe.isRefreshing()) {
             binding.swipe.setRefreshing(false);
         }
 
+        //if our data is from cache alert user.
         if (isCacheData) {
             showToast(R.string.offline_cashed_data_loaded, Toast.LENGTH_SHORT);
         }
-
-        questionAdapter.updateDataSet(questionToFlexible(questions));
     }
 
     @Override
@@ -119,7 +117,7 @@ public class QuestionListFragment extends BaseViewModelFragment<QuestionListView
     @Override
     public void showEmptyView(int resourceId) {
         //if we reach here from swipe to refresh.
-        if (binding.swipe.isRefreshing()){
+        if (binding.swipe.isRefreshing()) {
             binding.swipe.setRefreshing(false);
         }
 

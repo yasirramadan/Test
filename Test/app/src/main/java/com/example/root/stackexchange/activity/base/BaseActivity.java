@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.example.root.stackexchange.R;
-import com.example.root.stackexchange.callback.BackReceiver;
 
 import eu.inloop.viewmodel.IViewModelProvider;
 import eu.inloop.viewmodel.ViewModelProvider;
@@ -45,14 +44,6 @@ public abstract class BaseActivity extends AppCompatActivity implements IViewMod
     @Override
     public Object onRetainCustomNonConfigurationInstance() {
         return viewModelProvider;
-    }
-
-    @Override
-    public void onBackPressed() {
-        Fragment fragment = getSupportFragmentManager().findFragmentByTag(ROOT_FRAGMENT_TAG);
-        if (fragment == null || !(fragment instanceof BackReceiver) || !((BackReceiver) fragment).onBackPressed()) {
-            super.onBackPressed();
-        }
     }
 
     /**

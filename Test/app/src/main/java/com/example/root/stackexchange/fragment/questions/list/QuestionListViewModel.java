@@ -53,8 +53,10 @@ public class QuestionListViewModel extends BaseViewModel<QuestionListView> {
     public void onBindView(@NonNull QuestionListView view) {
         super.onBindView(view);
         if (model.getQuestions().size() == 0) {
+            //we have no data so load data/
             load(model.getNextPage(), true);
         } else {
+            //we already have data so show it.
             requestShow(false);
         }
     }
@@ -65,6 +67,13 @@ public class QuestionListViewModel extends BaseViewModel<QuestionListView> {
         PocketKnife.saveInstanceState(this, bundle);
     }
 
+    /**
+     * gets questions from server.
+     *
+     * @param page        page number.
+     * @param showLoading whether to show loading or not.
+     * @return
+     */
     private Single<Response<QuestionList>> getQuestions(int page, boolean showLoading) {
         return stackExchangeService.getQuestions(page)
                 .subscribeOn(Schedulers.io())
@@ -85,6 +94,12 @@ public class QuestionListViewModel extends BaseViewModel<QuestionListView> {
                 });
     }
 
+    /**
+     * loads data .
+     *
+     * @param pageNum
+     * @param showLoading
+     */
     @SuppressLint("CheckResult")
     private void load(int pageNum, boolean showLoading) {
         getQuestions(pageNum, showLoading).subscribe(questionList -> {
@@ -100,13 +115,17 @@ public class QuestionListViewModel extends BaseViewModel<QuestionListView> {
                 }
             }
         }, throwable -> {
+
         });
     }
 
+    /**
+     * loads more questions.
+     */
     @SuppressLint("CheckResult")
     public void loadMore() {
         //no more questions pass empty arrayList
-        if (model.getNextPage() == null || !model.hasMoreToLoad()) {
+        if (!model.hasMoreToLoad()) {
             requestMoreQuestionsLoaded(new ArrayList());
             return;
         }
@@ -122,8 +141,11 @@ public class QuestionListViewModel extends BaseViewModel<QuestionListView> {
         });
     }
 
+    /**
+     * reloads question.
+     */
     public void reload() {
-        //reset model and page counter to start from the beginning.
+        //reset page counter to start from the beginning.
         model.resetPageCounter();
         load(model.getNextPage(), false);
     }
