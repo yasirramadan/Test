@@ -131,7 +131,7 @@ public class QuestionListViewModel extends BaseViewModel<QuestionListView> {
         }
 
         //has more questions so load.
-        getQuestions(model.getPageCounter(), false).subscribe(questionList -> {
+        getQuestions(model.getNextPage(), false).subscribe(questionList -> {
             if (questionList != null) {
                 List<Question> questions = questionList.body() != null ? questionList.body().getQuestions() : new ArrayList<>();
                 model.addMoreQuestions(questions);
