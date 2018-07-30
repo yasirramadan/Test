@@ -1,11 +1,12 @@
 
 package com.example.root.stackexchange.backend.rest.model;
 
-import java.io.Serializable;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+import java.io.Serializable;
+import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -14,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "quota_max",
     "quota_remaining"
 })
-public class QuestionList implements Serializable {
+public class Questions implements Serializable {
 
     @JsonProperty("items")
     private List<Question> questions = null;

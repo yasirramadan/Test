@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import com.example.root.stackexchange.R;
 import com.example.root.stackexchange.backend.exeption.BackendException;
 import com.example.root.stackexchange.backend.rest.endpoint.QuestionsEndpoint;
-import com.example.root.stackexchange.backend.rest.model.QuestionList;
+import com.example.root.stackexchange.backend.rest.model.Questions;
 import com.example.root.stackexchange.util.NetworkUtils;
 
 import javax.inject.Inject;
@@ -32,7 +32,7 @@ public class StackExchangeService {
      * @param pageNumber number of requested page.
      * @return
      */
-    public Single<Response<QuestionList>> getQuestions(int pageNumber) {
+    public Single<Response<Questions>> getQuestions(int pageNumber) {
         return questionsEndpoint.getQuestions(String.valueOf(pageNumber));
     }
 

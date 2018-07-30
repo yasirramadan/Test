@@ -1,7 +1,7 @@
 package com.example.root.stackexchange.fragment.questions.list;
 
 import com.example.root.stackexchange.backend.rest.model.Question;
-import com.example.root.stackexchange.backend.rest.model.QuestionList;
+import com.example.root.stackexchange.backend.rest.model.Questions;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -50,7 +50,7 @@ public class QuestionListModel implements Serializable {
      *
      * @param questionList
      */
-    public void initModel(QuestionList questionList) {
+    public void initModel(Questions questionList) {
         if (questionList != null) {
             this.questions = questionList.getQuestions();
             this.hasMoreToLoad = questionList.getHasMore();

@@ -8,7 +8,7 @@ import android.support.annotation.Nullable;
 
 import com.example.root.stackexchange.R;
 import com.example.root.stackexchange.backend.rest.model.Question;
-import com.example.root.stackexchange.backend.rest.model.QuestionList;
+import com.example.root.stackexchange.backend.rest.model.Questions;
 import com.example.root.stackexchange.fragment.base.BaseViewModel;
 import com.example.root.stackexchange.service.StackExchangeService;
 
@@ -74,7 +74,7 @@ public class QuestionListViewModel extends BaseViewModel<QuestionListView> {
      * @param showLoading whether to show loading or not.
      * @return
      */
-    private Single<Response<QuestionList>> getQuestions(int page, boolean showLoading) {
+    private Single<Response<Questions>> getQuestions(int page, boolean showLoading) {
         return stackExchangeService.getQuestions(page)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
